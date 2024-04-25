@@ -7,27 +7,15 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 //@WebServlet("/calculate")
-public class CalculatorServlet implements Servlet {
+public class CalculatorServletV2 extends GenericServlet {
 
-    private static final Logger logger = LoggerFactory.getLogger(CalculatorServlet.class);
+    private static final Logger logger = LoggerFactory.getLogger(CalculatorServletV2.class);
 
     private ServletConfig servletConfig;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        logger.info("init");
-        this.servletConfig = config;
-    }
-
-    @Override
-    public ServletConfig getServletConfig() {
-        return null;
-    }
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
@@ -42,28 +30,4 @@ public class CalculatorServlet implements Servlet {
         writer.print(result);
     }
 
-    @Override
-    public void destroy() {
-
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "";
-    }
-
-//    @Override
-//    public void init(ServletConfig config) throws ServletException {
-//        logger.info("init");
-//    }
-//
-//    @Override
-//    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-//        logger.info("service");
-//    }
-//
-//    @Override
-//    public void destroy() {
-//
-//    }
 }
